@@ -42,3 +42,8 @@ func GetProduct(product string) (gjson.Result, error) {
 
 	return gjson.Parse(body), nil
 }
+
+// GetProducts returns all the products from the endoflife.date API
+func GetProducts() (gjson.Result, error) {
+	return GetProduct("all")
+}
