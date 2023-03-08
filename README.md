@@ -22,4 +22,10 @@ The `get` command is used to query the [endoflife.date API][endoflife_api_url] a
 eol get --product "go"
 ```
 
+If you do not know the name of the product you are looking for, you can use an interactive mode that will retrieve all the products from the [endoflife.date API][endoflife_api_url], presenting a prompt to select one of them.
+
+```bash
+eol get --interactive
+```
+
 [endoflife_api_url]: https://endoflife.date/docs/api
