@@ -1,0 +1,17 @@
+# .goreleaser.yaml
+project_name: eol
+
+builds:
+- env: [CGO_ENABLED=0]
+  id: eol
+  binary: eol
+  ldflags:
+  - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser
+  goos:
+  - linux
+  - windows
+  - darwin
+  goarch:
+  - amd64
+  - arm64
+  mod_timestamp: "{{ .CommitTimestamp }}"
