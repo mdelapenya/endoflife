@@ -16,7 +16,7 @@ var interactive bool
 
 func init() {
 	productCmd.Flags().StringVarP(&product, "product", "p", "", "Product to query (required)")
-	productCmd.Flags().BoolVarP(&interactive, "interative", "i", false, "Interactive mode to select the product from a list (optional)")
+	productCmd.Flags().BoolVarP(&interactive, "interactive", "i", false, "Interactive mode to select the product from a list (optional)")
 
 	rootCmd.AddCommand(productCmd)
 }
