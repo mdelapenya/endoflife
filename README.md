@@ -25,8 +25,6 @@ eol get --product "go"
 In the case you want to retrieve the version whose end of life has not finished, you can pass the release name in the `--supported` flag.
 
 ```bash
-
-```bash
 eol get --product go --supported
 ```
 
