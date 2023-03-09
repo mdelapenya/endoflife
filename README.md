@@ -22,6 +22,14 @@ The `get` command is used to query the [endoflife.date API][endoflife_api_url] a
 eol get --product "go"
 ```
 
+In the case you want to retrieve the version whose end of life has not finished, you can pass the release name in the `--supported` flag.
+
+```bash
+
+```bash
+eol get --product go --supported
+```
+
 If you do not know the name of the product you are looking for, you can use an interactive mode that will retrieve all the products from the [endoflife.date API][endoflife_api_url], presenting a prompt to select one of them.
 
 ```bash

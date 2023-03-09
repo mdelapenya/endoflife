@@ -12,12 +12,12 @@ import (
 
 var product string
 var interactive bool
-var eol bool
+var supported bool
 
 func init() {
 	productCmd.Flags().StringVarP(&product, "product", "p", "", "Product to query (required)")
 	productCmd.Flags().BoolVarP(&interactive, "interactive", "i", false, "Interactive mode to select the product from a list (optional)")
-	productCmd.Flags().BoolVarP(&eol, "eol", "e", true, "If set to false, it will retrieve those products with its EOL still not passed (optional)")
+	productCmd.Flags().BoolVarP(&supported, "supported", "s", true, "If set to true, it will retrieve those products with its EOL still not passed (optional)")
 
 	rootCmd.AddCommand(productCmd)
 }
@@ -59,7 +59,7 @@ func getProduct(product string) {
 		os.Exit(1)
 	}
 
-	if !eol {
+	if supported {
 		result = result.Get(`#(eol=="false")`)
 	}
 
