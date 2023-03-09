@@ -6,7 +6,6 @@ import (
 
 	survey "github.com/AlecAivazis/survey/v2"
 	"github.com/mdelapenya/endoflife/internal"
-	"github.com/mdelapenya/endoflife/types"
 	"github.com/spf13/cobra"
 	"github.com/tidwall/gjson"
 )
@@ -58,30 +57,7 @@ func getProduct(product string) {
 		os.Exit(1)
 	}
 
-	var products []types.Product
-
-	result.ForEach(func(key, value gjson.Result) bool {
-		cycle := value.Get("cycle")
-		latest := value.Get("latest")
-		eol := value.Get("eol")
-		releaseDate := value.Get("releaseDate")
-		latestReleaseDate := value.Get("latestReleaseDate")
-		lts := value.Get("lts")
-
-		product := types.Product{
-			Cycle:             cycle.String(),
-			Latest:            latest.String(),
-			Eol:               eol.String(),
-			ReleaseDate:       releaseDate.String(),
-			LatestReleaseDate: latestReleaseDate.String(),
-			Lts:               lts.Bool(),
-		}
-
-		products = append(products, product)
-		return true
-	})
-
-	fmt.Printf("%s versions:\n %+v\n", product, products)
+	fmt.Printf("%s versions:\n %+v\n", product, result)
 }
 
 func getProductInteractive() (string, error) {
